@@ -44,6 +44,7 @@ window.addEventListener("load", function () {
         }
     }
     function getJson(url) {
+        url = correctUrl(url);
         ul.innerHTML = `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
         return fetch(url).then(function (response) {
             return response.json();
@@ -55,13 +56,16 @@ window.addEventListener("load", function () {
                 console.error(error);
             });
     }
+    function correctUrl(url) {
+        return url.replace('http://', 'https://');
+    }
     function clickLiHandler(element) {
         var person = currentData.results[element.index];
         infoTable.innerHTML = `<div class="lds-roller show-loader-center"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`;
         var txt = `<table border="1" cellpadding="5"><thead><tr><th colspan="2">${person.name}</th></tr></thead>`;
         txt += `<tbody><tr><td>Gender</td><td>${person.gender}</td></tr>`;
         txt += `<tr><td>Birth year</td><td>${person.birth_year}</td></tr>`;
-        fetch(person.homeworld).then(function (response) {
+        fetch(correctUrl(person.homeworld)).then(function (response) {
             return response.json();
         })
             .then(function (data) {
@@ -69,7 +73,7 @@ window.addEventListener("load", function () {
                 txt += `<tr><td>Films</td><td><ul>`;
                 var arrJobs = [];
                 for (let i = 0; i < person.films.length; i++) {
-                    arrJobs[i] = fetch(person.films[i]).then(function (response) {
+                    arrJobs[i] = fetch(correctUrl(person.films[i])).then(function (response) {
                         return response.json();
                     })
                 }
@@ -81,7 +85,7 @@ window.addEventListener("load", function () {
                     txt += `</ul></td></tr><tr><td>Species</td><td><ul>`;
                     arrJobs = [];
                     for (let i = 0; i < person.species.length; i++) {
-                        arrJobs[i] = fetch(person.species[i]).then(function (response) {
+                        arrJobs[i] = fetch(correctUrl(person.species[i])).then(function (response) {
                             return response.json();
                         })
                     }
