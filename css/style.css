@@ -1,0 +1,149 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-image: url('../sources/star-wars-wallpaper-4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+.list-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    height: 100%;
+}
+
+#list-people {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 10px;
+    width: 80%;
+}
+
+.buttons {
+    align-self: center;
+    position: fixed;
+    top: 40%;
+    left: 415px;
+    width: 50px;
+}
+
+.buttons>input {
+    margin: 20px 0;
+    width: 40px;
+    height: 60px;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+}
+
+.buttons > input:active{
+    background-blend-mode: overlay;
+}
+
+.buttons>input:first-child {
+    background-image: url('../sources/upArrow.png'), url('../sources/upArrowGreen.png');
+}
+
+.buttons>input:last-child {
+    background-image: url('../sources/downArrow.png'), url('../sources/downArrowGreen.png');
+}
+
+#list-people>li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95px;
+    width: 95px;
+    border-radius: 5px;
+    background-color: rgb(201, 211, 206);
+    margin: 10px;
+    box-shadow: 0 14px 28px rgba(138, 2, 2, 0.568), 0 10px 10px rgba(138, 2, 2, 0.568);
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 5px;
+    text-transform: uppercase;
+}
+
+#list-people>li:hover {
+    box-shadow: 0 14px 28px rgba(255, 251, 0, 0.993), 0 10px 10px rgba(255, 209, 2, 0.966);
+    cursor: pointer;
+}
+
+.pop-up {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    top: 0;
+    left: 0;
+}
+
+.form-pop-up {
+    display: inline-block;
+    width: 290px;
+    height: 400px;
+    position: relative;
+    top: 20%;
+    left: 40%;
+    border-color: chartreuse;
+    box-shadow: 0 14px 28px rgb(51, 255, 0), 0 10px 10px rgb(51, 255, 0);
+    border-style: double;
+    background-color: darkgray;
+}
+
+#btnClose {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+#btnClose:hover {
+    background-color: rgb(163, 160, 160);
+}
+
+#btnClose:active {
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+
+.info-table {
+    height: 100%;
+}
+
+.info-table>table {
+    border: 2px solid rgb(99, 1, 1);
+    margin: 30px auto;
+    width: 90%;
+    height: 90%;
+}
+
+td>ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.show-loader-center {
+    top: 40%;
+    left: 40%;
+}
